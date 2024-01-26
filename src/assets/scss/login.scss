@@ -1,0 +1,57 @@
+.login {
+  min-height: 100vh;
+  display: grid;
+
+  .sec_1 {
+    background: linear-gradient(135deg, skyblue, rgb(28, 180, 240));
+    display: grid;
+    place-items: center;
+
+    .login-control {
+      .email-input,
+      .password-input {
+        margin-bottom: 1rem;
+
+        input {
+          width: 300px;
+          height: 40px;
+          border-radius: 10px;
+          padding: 1rem;
+        }
+      }
+
+      .login-button {
+        button {
+          width: 300px;
+          height: 40px;
+          border-radius: 10px;
+        }
+
+        button:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .sec_2 {
+    background-image: url("/img/pexels-gülşah-aydoğan-17775035.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 60em) {
+  .login {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 60em) {
+  .login {
+    .sec_2 {
+      display: none;
+    }
+  }
+}
