@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { people } from "../data/users";
+import { Input } from "../components/input";
+import { Button } from "../components/button";
+import { OAuthIcons } from "../components/alt_login";
 
 export const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -32,35 +35,35 @@ export const Login = () => {
       <div className="sec_1">
         <div className="login-control">
           <div className="email-input">
-            <input
-              type="text"
-              name="email"
-              id="email"
-              className="email"
-              placeholder="Enter your email"
+            <Input
+              type={"email"}
+              name={"email"}
+              id={"email"}
+              className={"email"}
+              placeholder={"Enter your email"}
               value={loginData.email}
               onChange={handleInputChange}
             />
           </div>
 
           <div className="password-input">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              className="password"
-              placeholder="Enter your password"
+            <Input
+              type={"password"}
+              name={"password"}
+              id={"password"}
+              className={"password"}
+              placeholder={"Enter your password"}
               value={loginData.password}
               onChange={handleInputChange}
             />
           </div>
 
           <div className="login-button">
-            <button type="submit" onClick={login}>
-              Login
-            </button>
+            <Button type={"submit"} onClick={login} text={"Sign in"} />
           </div>
         </div>
+
+        <OAuthIcons />
       </div>
 
       <div className="sec_2" />
