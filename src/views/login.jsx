@@ -32,8 +32,11 @@ export const Login = () => {
 
   return (
     <div className="login" id="login">
+      {/* First Grid */}
       <div className="sec_1">
+        {/* Input Controls container */}
         <div className="login-control">
+          {/* Email */}
           <div className="email-input">
             <Input
               type={"email"}
@@ -46,6 +49,7 @@ export const Login = () => {
             />
           </div>
 
+          {/* Password */}
           <div className="password-input">
             <Input
               type={"password"}
@@ -58,6 +62,7 @@ export const Login = () => {
             />
           </div>
 
+          {/* Login Button */}
           <div className="login-button">
             <Button type={"submit"} onClick={login} text={"Sign in"} />
           </div>
@@ -66,6 +71,7 @@ export const Login = () => {
         <OAuthIcons />
       </div>
 
+      {/* Second Grid */}
       <div className="sec_2" />
     </div>
   );
