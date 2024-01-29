@@ -40,6 +40,20 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      margin: 1rem;
+    }
+
+    img:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 @media (min-width: 60em) {
