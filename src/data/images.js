@@ -1,6 +1,6 @@
 export const imagePool = [
-  { id: 1, img: "/public/ico/facebook.png" },
-  { id: 2, img: "/public/ico/google-symbol.png" },
-  { id: 3, img: "/public/ico/apple.png" },
-  { id: 4, img: "/public/ico/twitter.png" },
+  { id: 1, img: "/ico/facebook.png", alt: "facebook.png" },
+  { id: 2, img: "/ico/google-symbol.png", alt: "google-symbol.png" },
+  { id: 3, img: "/ico/apple.png", alt: "apple.png" },
+  { id: 4, img: "/ico/twitter.png", alt: "twitter.png" },
 ];

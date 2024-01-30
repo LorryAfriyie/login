@@ -36,6 +36,7 @@ export const Login = () => {
       <div className="sec_1">
         {/* Input Controls container */}
         <div className="login-control">
+          <p className="email-signin">Sign in with email</p>
           {/* Email */}
           <div className="email-input">
             <Input
@@ -66,9 +67,16 @@ export const Login = () => {
           <div className="login-button">
             <Button type={"submit"} onClick={login} text={"Sign in"} />
           </div>
-        </div>
+          <p className="forgot-password">Forgot password?</p>
 
-        <OAuthIcons />
+          <OAuthIcons />
+
+          <div className="link">
+            <a href="#" className="signup-link">
+              Don&apos;t have an account? Sign up!
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Second Grid */}

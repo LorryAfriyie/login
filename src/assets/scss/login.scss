@@ -4,10 +4,27 @@
 
   .sec_1 {
     background: linear-gradient(135deg, skyblue, rgb(28, 180, 240));
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .login-control {
+      .email-signin {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .forgot-password {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .oauth-signin {
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+
       .email-input,
       .password-input {
         margin-bottom: 1rem;
@@ -31,11 +48,24 @@
           cursor: pointer;
         }
       }
+
+      .link {
+        text-align: center;
+        margin-top: 2rem;
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+
+        a:hover {
+          color: #fff;
+        }
+      }
     }
   }
 
   .sec_2 {
-    background-image: url("/img/pexels-gülşah-aydoğan-17775035.jpg");
+    background-image: url("/img/pexels-gülşah-aydoğan-19613016.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,14 +74,17 @@
   .icon-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 
     img {
       max-width: 100%;
-      margin: 1rem;
+      margin: 0.5rem;
+      transition: transform 0.2s;
     }
 
     img:hover {
       cursor: pointer;
+      transform: scale(1.3);
     }
   }
 }
