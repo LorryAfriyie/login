@@ -27,6 +27,7 @@ export const Login = () => {
       alert(`Hello ${people[0].name}!`);
     else {
       alert("Incorrect login details.");
+      
     }
   };
 
@@ -36,7 +37,7 @@ export const Login = () => {
       <div className="sec_1">
         {/* Input Controls container */}
         <div className="login-control">
-          <p className="email-signin">Sign in with email</p>
+          <h2 className="email-signin">Sign in with email</h2>
           {/* Email */}
           <div className="email-input">
             <Input
