@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { people } from "../data/users";
 import { Input } from "../components/input";
 import { Button } from "../components/button";
@@ -10,6 +10,11 @@ export const Login = () => {
     password: "",
   });
 
+  const email = document.querySelector(".email"),
+    password = document.querySelector(".password");
+
+  const emailTextBox = useRef(null);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -19,15 +24,25 @@ export const Login = () => {
     }));
   };
 
-  const login = () => {
+  const login = (e) => {
+    e.preventDefault();
+
     if (
       loginData.email === people[0].email &&
       loginData.password === people[0].password
-    )
+    ) {
+      email.classList.remove("error");
+      password.classList.remove("error");
       alert(`Hello ${people[0].name}!`);
-    else {
+    } else if (
+      loginData.email != people[0].password &&
+      loginData.password != people[0].password
+    ) {
+      setLoginData({ email: "", password: "" });
       alert("Incorrect login details.");
-      
+    } else {
+      email.classList.add("error");
+      password.classList.add("error");
     }
   };
 
@@ -36,7 +51,7 @@ export const Login = () => {
       {/* First Grid */}
       <div className="sec_1">
         {/* Input Controls container */}
-        <div className="login-control">
+        <form className="login-control" onSubmit={login}>
           <h2 className="email-signin">Sign in with email</h2>
           {/* Email */}
           <div className="email-input">
@@ -66,18 +81,24 @@ export const Login = () => {
 
           {/* Login Button */}
           <div className="login-button">
-            <Button type={"submit"} onClick={login} text={"Sign in"} />
+            <Button type={"submit"} text={"Sign in"} />
           </div>
-          <p className="forgot-password">Forgot password?</p>
 
+          {/* Forgot password link */}
+          <div className="link forgot-password">
+            <a href="#">Forgot password?</a>
+          </div>
+
+          {/* 3rd party login icons component */}
           <OAuthIcons />
 
+          {/* Sign up link */}
           <div className="link">
             <a href="#" className="signup-link">
               Don&apos;t have an account? Sign up!
             </a>
           </div>
-        </div>
+        </form>
       </div>
 
       {/* Second Grid */}

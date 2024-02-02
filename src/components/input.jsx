@@ -6,6 +6,7 @@ export const Input = ({
   placeholder,
   value,
   onChange,
+  ref
 }) => {
   return (
     <input
@@ -16,6 +17,7 @@ export const Input = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      ref={ref}
     />
   );
 };

@@ -41,6 +41,10 @@
         }
       }
 
+      .error {
+        border: 2px solid red !important;
+      }
+
       .login-button {
         button {
           width: 300px;
