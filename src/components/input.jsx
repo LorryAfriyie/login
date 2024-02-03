@@ -1,3 +1,5 @@
+import { forwardRef } from "react";
+
 export const Input = ({
   type,
   name,
@@ -6,7 +8,7 @@ export const Input = ({
   placeholder,
   value,
   onChange,
-  ref
+  ref,
 }) => {
   return (
     <input

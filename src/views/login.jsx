@@ -10,11 +10,6 @@ export const Login = () => {
     password: "",
   });
 
-  const email = document.querySelector(".email"),
-    password = document.querySelector(".password");
-
-  const emailTextBox = useRef(null);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -27,23 +22,22 @@ export const Login = () => {
   const login = (e) => {
     e.preventDefault();
 
+    if ((loginData.email && loginData.password) === "") {
+      document.querySelector(".message").innerHTML = "Textboxes are empty";
+      document.querySelector(".email").classList.add("error");
+      document.querySelector(".password").classList.add("error");
+      document.querySelector(".message").classList.add("error-message");
+    } else {
+      document.querySelector(".message").innerHTML = " ";
+      document.querySelector(".email").classList.remove("error");
+      document.querySelector(".password").classList.remove("error");
+    }
+
     if (
       loginData.email === people[0].email &&
       loginData.password === people[0].password
-    ) {
-      email.classList.remove("error");
-      password.classList.remove("error");
-      alert(`Hello ${people[0].name}!`);
-    } else if (
-      loginData.email != people[0].password &&
-      loginData.password != people[0].password
-    ) {
-      setLoginData({ email: "", password: "" });
-      alert("Incorrect login details.");
-    } else {
-      email.classList.add("error");
-      password.classList.add("error");
-    }
+    )
+      document.querySelector(".message").innerHTML = `Hello ${people[0].name}`;
   };
 
   return (
@@ -53,6 +47,9 @@ export const Login = () => {
         {/* Input Controls container */}
         <form className="login-control" onSubmit={login}>
           <h2 className="email-signin">Sign in with email</h2>
+
+          <p className="message" />
+
           {/* Email */}
           <div className="email-input">
             <Input
@@ -65,7 +62,6 @@ export const Login = () => {
               onChange={handleInputChange}
             />
           </div>
-
           {/* Password */}
           <div className="password-input">
             <Input
@@ -78,20 +74,16 @@ export const Login = () => {
               onChange={handleInputChange}
             />
           </div>
-
           {/* Login Button */}
           <div className="login-button">
             <Button type={"submit"} text={"Sign in"} />
           </div>
-
           {/* Forgot password link */}
           <div className="link forgot-password">
             <a href="#">Forgot password?</a>
           </div>
-
           {/* 3rd party login icons component */}
           <OAuthIcons />
-
           {/* Sign up link */}
           <div className="link">
             <a href="#" className="signup-link">
