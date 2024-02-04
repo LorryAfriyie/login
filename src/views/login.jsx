@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { people } from "../data/users";
 import { Input } from "../components/input";
 import { Button } from "../components/button";
@@ -9,6 +9,10 @@ export const Login = () => {
     email: "",
     password: "",
   });
+
+  const message = useRef(null),
+    email = useRef(null),
+    password = useRef(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,21 +27,21 @@ export const Login = () => {
     e.preventDefault();
 
     if ((loginData.email && loginData.password) === "") {
-      document.querySelector(".message").innerHTML = "Textboxes are empty";
-      document.querySelector(".email").classList.add("error");
-      document.querySelector(".password").classList.add("error");
-      document.querySelector(".message").classList.add("error-message");
+      message.current.innerHTML = "Textboxes are empty";
+      email.current.classList.add("error");
+      password.current.classList.add("error");
+      message.current.classList.add("error-message");
     } else {
-      document.querySelector(".message").innerHTML = " ";
-      document.querySelector(".email").classList.remove("error");
-      document.querySelector(".password").classList.remove("error");
+      message.current.innerHTML = " ";
+      email.current.classList.remove("error");
+      password.current.classList.remove("error");
     }
 
     if (
       loginData.email === people[0].email &&
       loginData.password === people[0].password
     )
-      document.querySelector(".message").innerHTML = `Hello ${people[0].name}`;
+      message.current.innerHTML = `Hello ${people[0].name}`;
   };
 
   return (
@@ -48,7 +52,8 @@ export const Login = () => {
         <form className="login-control" onSubmit={login}>
           <h2 className="email-signin">Sign in with email</h2>
 
-          <p className="message" />
+          {/* Error message */}
+          <p className="message" ref={message} />
 
           {/* Email */}
           <div className="email-input">
@@ -60,8 +65,10 @@ export const Login = () => {
               placeholder={"Enter your email"}
               value={loginData.email}
               onChange={handleInputChange}
+              ref={email}
             />
           </div>
+
           {/* Password */}
           <div className="password-input">
             <Input
@@ -72,18 +79,23 @@ export const Login = () => {
               placeholder={"Enter your password"}
               value={loginData.password}
               onChange={handleInputChange}
+              ref={password}
             />
           </div>
+
           {/* Login Button */}
           <div className="login-button">
             <Button type={"submit"} text={"Sign in"} />
           </div>
+
           {/* Forgot password link */}
           <div className="link forgot-password">
             <a href="#">Forgot password?</a>
           </div>
+
           {/* 3rd party login icons component */}
           <OAuthIcons />
+
           {/* Sign up link */}
           <div className="link">
             <a href="#" className="signup-link">

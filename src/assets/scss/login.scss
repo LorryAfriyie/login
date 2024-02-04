@@ -20,7 +20,7 @@
       }
 
       .error-message {
-        color: red;
+        color: rgb(95, 0, 0);
       }
 
       .forgot-password {
@@ -81,12 +81,13 @@
         margin-top: 2rem;
 
         a {
+          transition: 0.4s ease-in-out 0.1s;
           text-decoration: none;
           color: #000;
         }
 
         a:hover {
-          color: #fff;
+          color: #eeeeee;
         }
       }
     }
