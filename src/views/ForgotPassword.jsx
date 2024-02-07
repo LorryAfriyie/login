@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export const RegistrationForm = () => {
+export const ForgotPassword = () => {
   return (
-    <div className="registration_form">
-      <h2>Registration Form</h2>
+    <div>
+      <h2>Forgot Password</h2>
       <Link to={"/"}>Return to sign-in</Link>
     </div>
   );

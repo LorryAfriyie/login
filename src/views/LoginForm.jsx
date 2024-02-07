@@ -13,8 +13,7 @@ export const LoginForm = () => {
   const message = useRef(null),
     email = useRef(null),
     password = useRef(null),
-    loginForm = useRef(null),
-    signUp = useRef(null);
+    loginForm = useRef(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

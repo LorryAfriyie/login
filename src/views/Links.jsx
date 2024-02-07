@@ -1,11 +1,13 @@
 import { OAuthIcons } from "../components/alt_login";
+import { Link } from "react-router-dom";
 
-export const Links = ({}) => {
+// eslint-disable-next-line react/display-name
+export const Links = () => {
   return (
     <>
       {/* Forgot password link */}
       <div className="link forgot-password">
-        <a href="#">Forgot password?</a>
+        <Link to={"/forgot_password"}>Forgot password?</Link>
       </div>
 
       {/* 3rd party login icons component */}
@@ -13,9 +15,9 @@ export const Links = ({}) => {
 
       {/* Sign up link */}
       <div className="link">
-        <a href="#" className="signup-link">
+        <Link to={"/registration"} className="signup-link">
           Don&apos;t have an account? Sign up!
-        </a>
+        </Link>
       </div>
     </>
   );
