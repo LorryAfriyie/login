@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import { people } from "../data/users";
 import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { Links } from "./Links";
+import { CheckLoginInputs } from "../functions/loginValidation";
 
 export const LoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -10,11 +10,13 @@ export const LoginForm = () => {
     password: "",
   });
 
+  // useRef hooks
   const message = useRef(null),
     email = useRef(null),
     password = useRef(null),
     loginForm = useRef(null);
 
+  // Check for input values in inputs and store them into the loginData state hook
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -24,25 +26,11 @@ export const LoginForm = () => {
     }));
   };
 
+  // Login function
   const login = (e) => {
     e.preventDefault();
 
-    if ((loginData.email && loginData.password) === "") {
-      message.current.innerHTML = "Textboxes are empty";
-      email.current.classList.add("error");
-      password.current.classList.add("error");
-      message.current.classList.add("error-message");
-    } else {
-      message.current.innerHTML = " ";
-      email.current.classList.remove("error");
-      password.current.classList.remove("error");
-    }
-
-    if (
-      loginData.email === people[0].email &&
-      loginData.password === people[0].password
-    )
-      message.current.innerHTML = `Hello ${people[0].name}`;
+    CheckLoginInputs(message, email, password, loginData);
   };
 
   return (
