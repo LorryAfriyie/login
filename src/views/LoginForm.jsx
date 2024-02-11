@@ -3,6 +3,7 @@ import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { Links } from "./Links";
 import { CheckLoginInputs } from "../functions/loginValidation";
+import { SuccessModal } from "../components/modal";
 
 export const LoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -77,6 +78,8 @@ export const LoginForm = () => {
 
         <Links />
       </form>
+
+      <SuccessModal />
     </>
   );
 };
