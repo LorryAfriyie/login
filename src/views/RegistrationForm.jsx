@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "../components/input";
 import { CheckRegisterInputs } from "../functions/RegistrationValidation";
+import { SuccessModal } from "../components/modal";
 
 export const RegistrationForm = () => {
   const [registerData, setRegisterData] = useState({
@@ -89,6 +90,8 @@ export const RegistrationForm = () => {
       <div className="link">
         <Link to={"/"}>Return to sign-in</Link>
       </div>
+
+      <SuccessModal />
     </div>
   );
 };

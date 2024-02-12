@@ -1,4 +1,5 @@
 .modal {
+  display: none;
   position: fixed;
   z-index: 2;
   left: 0;
@@ -13,7 +14,7 @@
     margin: 15% auto;
     padding: 20px;
     width: 88%;
-    border: 1px solid #888;
+    border: 1.5px solid skyblue;
     max-width: 500px;
     border-radius: 10px;
     text-align: center;
