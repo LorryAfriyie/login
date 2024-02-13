@@ -4,11 +4,9 @@ import { showModal } from "./ModalFunctions";
 export let CheckLoginInputs = (message, email, password, data) => {
   // Check if the login and pasword state variables are empty
   if ((data.email && data.password) === "") {
-    message.current.innerHTML = "Textboxes are empty";
     email.current.classList.add("error");
     password.current.classList.add("error");
-    message.current.classList.add("error-message");
-    showModal();
+    showModal("Login Error", "Textboxes are empty");
   } else {
     message.current.innerHTML = " ";
     email.current.classList.remove("error");

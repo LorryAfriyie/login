@@ -16,8 +16,7 @@ export const RegistrationForm = () => {
   const firstname = useRef(null),
     surname = useRef(null),
     email = useRef(null),
-    password = useRef(null),
-    message = useRef(null);
+    password = useRef(null);
 
   // Check for input values in inputs and store them into the loginData state hook
   const handleInputChange = (e) => {
