@@ -17,6 +17,7 @@ export const LoginForm = () => {
     password = useRef(null),
     loginForm = useRef(null);
 
+    
   // Check for input values in inputs and store them into the loginData state hook
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,18 +28,17 @@ export const LoginForm = () => {
     }));
   };
 
-  useEffect(() => {
-    loginForm.current.addEventListener("submit", (e) => {
-      e.preventDefault();
-    });
+  const login = (e) => {
+    e.preventDefault();
+    CheckLoginInputs(message, email, password);
+  };
 
-    CheckLoginInputs(message, email, password, loginData);
-  }, [loginForm, loginData]);
+  let test = document.getElementById('email');
 
   return (
     <>
       {/* Input Controls container */}
-      <form className="login-control" ref={loginForm}>
+      <form className="login-control" ref={loginForm} onSubmit={login}>
         <h2 className="email-signin">Sign in with email</h2>
 
         {/* Error message */}

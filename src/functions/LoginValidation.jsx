@@ -1,10 +1,13 @@
-import { people } from "../data/users";
-import { showModal } from "./ModalFunctions";
+export let CheckLoginInputs = (message, email, password) => {
+  validateField(
+    email.current,
+    email.current.value.trim() === "",
+    "Email cannot be empty.",
+  );
 
-export let CheckLoginInputs = (message, email, password, data) => {
-  email.current.addEventListener("input", () => {
-    alert("Hello");
-  });
+  /*   if (email.current.value.trim() === "") {
+  } */
+
   /* // Check if the login and pasword state variables are empty
   if ((data.email && data.password) === "") {
     email.current.classList.add("error");
@@ -21,4 +24,11 @@ export let CheckLoginInputs = (message, email, password, data) => {
     message.current.innerHTML = `Hello ${people[0].name}`; */
 };
 
-function setError()
+const validateField = (input, condition, errMessage) => {
+  if (condition) setErrorBorder(input, errMessage);
+};
+
+const setErrorBorder = (input, errMessage) => {
+  input.parentElement.className = "form-control error";
+  input.placeholder = errMessage;
+};
