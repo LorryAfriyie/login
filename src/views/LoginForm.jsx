@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { Links } from "./Links";
-import { CheckLoginInputs } from "../functions/loginValidation";
+import { CheckLoginInputs } from "../functions/LoginValidation";
 import { SuccessModal } from "../components/modal";
 
 export const LoginForm = () => {
@@ -27,24 +27,25 @@ export const LoginForm = () => {
     }));
   };
 
-  // Login function
-  const login = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    loginForm.current.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
 
     CheckLoginInputs(message, email, password, loginData);
-  };
+  }, [loginForm, loginData]);
 
   return (
     <>
       {/* Input Controls container */}
-      <form className="login-control" onSubmit={login} ref={loginForm}>
+      <form className="login-control" ref={loginForm}>
         <h2 className="email-signin">Sign in with email</h2>
 
         {/* Error message */}
         <p className="message" ref={message} />
 
         {/* Email */}
-        <div className="email-input">
+        <div className="form-control">
           <Input
             type={"email"}
             name={"email"}
@@ -58,7 +59,7 @@ export const LoginForm = () => {
         </div>
 
         {/* Password */}
-        <div className="password-input">
+        <div className="form-control">
           <Input
             type={"password"}
             name={"password"}
