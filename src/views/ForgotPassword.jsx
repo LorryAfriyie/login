@@ -11,19 +11,26 @@ export const ForgotPassword = () => {
   // Email useRef reference to DOM input element
   const userEmail = useRef(null);
 
+  const sendNewPasswordRequest = (e) => {
+    e.preventDefault();
+    EmailValidation(userEmail);
+  };
+
   return (
     <div className="forgot_password">
       <h2>Forgot Password</h2>
-      <form action="" onSubmit={(e) => EmailValidation(e, email)}>
-        <Input
-          type={"email"}
-          name={"email"}
-          id={"email"}
-          className={""}
-          placeholder={"Enter your email"}
-          value={(e) => setEmail(e.target.value)}
-          ref={userEmail}
-        />
+      <form action="" onSubmit={sendNewPasswordRequest}>
+        <div className="form-control">
+          <Input
+            type={"email"}
+            name={"email"}
+            id={"email"}
+            className={""}
+            placeholder={"Enter your email"}
+            value={(e) => setEmail(e.target.value)}
+            ref={userEmail}
+          />
+        </div>
 
         <button type="submit">Send reset email</button>
       </form>

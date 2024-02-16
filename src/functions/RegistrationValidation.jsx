@@ -1,9 +1,15 @@
-import { showModal } from "./ModalFunctions";
+import { setErrorBorder } from "./SetBorder";
 
-export let CheckRegisterInputs = (data) => {
-  if ((data.name && data.surname && data.email && data.password) === "")
-    showModal(
-      "Registration Error",
-      "All the textboxes are empty, please fill all of them in.",
-    );
+export let CheckRegisterInputs = (name, surname, email, password) => {
+  if (name.current.value.trim() === "")
+    setErrorBorder(name.current, "First name input cannot empty.");
+
+  if (surname.current.value.trim() === "")
+    setErrorBorder(surname.current, "First name input cannot empty.");
+
+  if (email.current.value.trim() === "")
+    setErrorBorder(email.current, "First name input cannot empty.");
+
+  if (password.current.value.trim() === "")
+    setErrorBorder(password.current, "First name input cannot empty.");
 };

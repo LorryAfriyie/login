@@ -1,10 +1,6 @@
-import { showModal } from "./ModalFunctions";
+import { setErrorBorder } from "./SetBorder";
 
-export const EmailValidation = (e, email) => {
-  e.preventDefault();
-  if (email === "")
-    showModal(
-      "Email Error",
-      "The textbox is empty, please provide your email.",
-    );
+export const EmailValidation = (email) => {
+  if (email.current.value.trim() === "")
+    setErrorBorder(email.current, "The textbox is empty.");
 };
