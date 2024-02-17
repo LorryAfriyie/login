@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "../components/input";
 import { EmailValidation } from "../functions/ForgotPasswordValidation";
 import { SuccessModal } from "../components/modal";
+import { removeErrorBorder } from "../functions/SetBorder";
 
 export const ForgotPassword = () => {
   // Email useState variable
@@ -16,6 +17,10 @@ export const ForgotPassword = () => {
     EmailValidation(userEmail);
   };
 
+  useEffect(() => {
+    removeErrorBorder(userEmail, "Please enter your email...");
+  });
+
   return (
     <div className="forgot_password">
       <h2>Forgot Password</h2>
@@ -27,7 +32,7 @@ export const ForgotPassword = () => {
             id={"email"}
             className={""}
             placeholder={"Enter your email"}
-            value={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             ref={userEmail}
           />
         </div>

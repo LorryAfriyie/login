@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "../components/input";
 import { CheckRegisterInputs } from "../functions/RegistrationValidation";
 import { SuccessModal } from "../components/modal";
+import { removeErrorBorder } from "../functions/SetBorder";
 
 export const RegistrationForm = () => {
   const [registerData, setRegisterData] = useState({
@@ -34,6 +35,17 @@ export const RegistrationForm = () => {
 
     CheckRegisterInputs(firstname, surname, email, password);
   };
+
+  useEffect(() => {
+    const inputs = [
+      { item: firstname, message: "Please enter your firstname..." },
+      { item: surname, message: "Please enter your surname..." },
+      { item: email, message: "Please enter your email..." },
+      { item: password, message: "Please enter your password..." },
+    ];
+
+    inputs.map((x) => removeErrorBorder(x.item, x.message));
+  });
   return (
     <div className="register_section">
       <h2>Registration</h2>
@@ -63,6 +75,7 @@ export const RegistrationForm = () => {
             ref={surname}
           />
         </div>
+
         <div className="form-control">
           <Input
             type={"email"}

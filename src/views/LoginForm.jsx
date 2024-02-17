@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { Links } from "./Links";
 import { CheckLoginInputs } from "../functions/LoginValidation";
 import { SuccessModal } from "../components/modal";
+import { removeErrorBorder } from "../functions/SetBorder";
 
 export const LoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -17,7 +18,6 @@ export const LoginForm = () => {
     password = useRef(null),
     loginForm = useRef(null);
 
-    
   // Check for input values in inputs and store them into the loginData state hook
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +33,14 @@ export const LoginForm = () => {
     CheckLoginInputs(message, email, password);
   };
 
-  let test = document.getElementById('email');
+  useEffect(() => {
+    const inputs = [
+      { item: email, message: "Please enter your email..." },
+      { item: password, message: "Please enter your password..." },
+    ];
+
+    inputs.map((x) => removeErrorBorder(x.item, x.message));
+  });
 
   return (
     <>
