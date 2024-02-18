@@ -3,7 +3,6 @@ import { Input } from "../components/input";
 import { Button } from "../components/button";
 import { Links } from "./Links";
 import { CheckLoginInputs } from "../functions/LoginValidation";
-import { SuccessModal } from "../components/modal";
 import { removeErrorBorder } from "../functions/SetBorder";
 
 export const LoginForm = () => {
@@ -86,8 +85,6 @@ export const LoginForm = () => {
 
         <Links />
       </form>
-
-      <SuccessModal />
     </>
   );
 };

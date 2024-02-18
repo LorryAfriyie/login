@@ -2,7 +2,6 @@ import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "../components/input";
 import { EmailValidation } from "../functions/ForgotPasswordValidation";
-import { SuccessModal } from "../components/modal";
 import { removeErrorBorder } from "../functions/SetBorder";
 
 export const ForgotPassword = () => {
@@ -42,9 +41,8 @@ export const ForgotPassword = () => {
 
       <div className="link">
         <Link to={"/"}>Return to sign-in</Link>
+        <i className="bi bi-arrow-right" />
       </div>
-
-      <SuccessModal />
     </div>
   );
 };
